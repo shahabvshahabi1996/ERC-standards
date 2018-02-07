@@ -47,7 +47,7 @@ contract ERC20Token is Token {
     }
 
     function transferFrom(address _from, address _to, uint256 value) returns (bool success) {
-        if (balanceOf(_from) >= value && value > 0 && _allowance[_from][msg.sender] >= value) {
+        if (balanceOf(_from) >= value && value > 0 && allowance(_from, msg.sender) >= value) {
             _balanceOf[_from] -= value;
             _balanceOf[_to] += value;
             _allowance[_from][msg.sender] -= value;
